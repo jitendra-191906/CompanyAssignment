@@ -1,0 +1,222 @@
+.button {
+  position: relative;
+  border: none;
+  border-radius: 0.625rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  user-select: none;
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.button--sm {
+  padding: 0.375rem 0.875rem;
+  font-size: 0.875rem;
+  height: 36px;
+  min-width: 36px;
+}
+
+.button--md {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.95rem;
+  height: 44px;
+  min-width: 44px;
+}
+
+.button--lg {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  height: 52px;
+  min-width: 52px;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary-dark));
+  color: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.button--primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.button--primary:hover {
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+  transform: translateY(-2px);
+}
+
+.button--primary:hover::before {
+  left: 100%;
+}
+
+.button--primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+.button--primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.button--secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+}
+
+.button--secondary:hover {
+  background-color: var(--bg-tertiary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(15, 23, 42, 0.1);
+  border-color: var(--accent-primary);
+}
+
+.button--secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+}
+
+.button--secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================
+   DANGER VARIANT
+   ============================================ */
+
+.button--danger {
+  background-color: var(--color-danger);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.button--danger:hover {
+  background-color: var(--accent-danger-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.button--danger:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.button--danger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================
+   OUTLINE VARIANT
+   ============================================ */
+
+.button--outline {
+  background-color: transparent;
+  color: var(--accent-primary);
+  border: 1.5px solid var(--accent-primary);
+}
+
+.button--outline:hover {
+  background-color: var(--accent-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.button--outline:active {
+  transform: translateY(0);
+}
+
+.button--outline:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================
+   ICON BUTTON
+   ============================================ */
+
+.button--icon {
+  padding: 0;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  color: var(--text-primary);
+}
+
+.button--icon:hover {
+  background-color: var(--bg-secondary);
+  transform: scale(1.05);
+}
+
+.button--icon:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+
+.button__spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   FOCUS STATE
+   ============================================ */
+
+.button:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .button {
+    border-radius: 0.375rem;
+  }
+
+  .button--md {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.875rem;
+    height: 36px;
+  }
+}
